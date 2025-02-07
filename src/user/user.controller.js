@@ -65,3 +65,44 @@ export const get = async(req, res)=>{
         )
     }
 }
+
+//Actualizar los datos generales
+export const update = async(req, res)=>{
+    try {
+        const { id } = req.params
+
+        const data = req.body
+
+        const update = User.findByIdAndUpdate(
+            id,
+            data,
+            {new: true}
+        )
+
+        if(!update) return res.status(404).send(
+            {
+                success: false,
+                message: 'User not found'
+            }
+        )
+        return res.send(
+            {
+                success: true,
+                message: 'User updated'
+            }
+        )
+    } catch (e) {
+        console.error('General error', e)
+        return res.status(500).send(
+            {
+                success: false,
+                message: 'General error', 
+                e
+            }
+        )
+    }
+}
+
+//Actualizar profile Picture
+
+//Actualizar password *******

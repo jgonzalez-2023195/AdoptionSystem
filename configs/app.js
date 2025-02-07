@@ -11,6 +11,7 @@ import helmet from 'helmet' //Seguridad para HTTP
 import cors from 'cors' //Acceso al API
 import authRoutes from '../src/auth/auth.routes.js'
 import userRoutes from '../src/user/user.routes.js'
+import petRoutes from '../src/animal/animal.routes.js'
 import { limiter } from '../middlewares/rate.limit.js'
 
 //Configuraciones de express
@@ -27,6 +28,7 @@ const routes = (app)=>{
     app.use(authRoutes)
     //versión del API y entidad
     app.use('/v1/user', userRoutes)
+    app.use('/v1/pets', petRoutes)
 }
 
 //Ejecutarmos el servidor
