@@ -53,7 +53,7 @@ export const updateAnimal = async (req, res)=> {
         let id = req.params.id
         let data = req.body
         let updateAnimal = await Animal.findByIdAndUpdate(id, data, {new: true})
-        if(!updateAnimal) return res.satatus(400).send({message: 'Pet not found, pet not update'})
+        if(!updateAnimal) return res.status(400).send({message: 'Pet not found, pet not update'})
             return res.status(200).send({message: 'Pet updated succesfully', updateAnimal})
     } catch (e) {
         console.error('General error', e);

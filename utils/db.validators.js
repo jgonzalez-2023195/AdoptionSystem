@@ -18,7 +18,7 @@ export const existEmail = async(email, user)=>{
     }
 }
 
-export const notRequieredField = (field)=>{
+export const notRequiredField = (field)=>{
     if(field){
         throw new Error(`${field} is not required`)
     }

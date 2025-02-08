@@ -11,6 +11,7 @@ export const validateErrors = (req, res, next)=>{
 
 export const validateErrorsWithoutFiles = (req, res, next)=>{
     const errors = validationResult(req)
+    console.log(validationResult(req))
     if(!errors.isEmpty()){
         return res.status(400).send(
             {
