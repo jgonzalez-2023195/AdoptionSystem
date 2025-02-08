@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { addAnimal, deleteAnimal, getAllAnimal, updateAnimal } from './animal.controller.js';  // Asegúrate de que la ruta sea correcta
+import { addAnimal, deleteAnimal, getAllAnimal, updateAnimal } from './animal.controller.js'
 
 const api = Router();
 
