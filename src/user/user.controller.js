@@ -1,6 +1,7 @@
 //Gestionar funciones de usuario
 
 import User from './user.model.js'
+import { checkPassword, encrypt } from '../../utils/encryp.js'
 
 //Obtener todos
 export const getAll = async(req,res)=>{
@@ -67,18 +68,19 @@ export const get = async(req, res)=>{
 }
 
 //Actualizar los datos generales
+//Actualizar datos genereales
 export const update = async(req, res)=>{
-    try {
+    try{
         const { id } = req.params
-
+ 
         const data = req.body
-
-        const update = User.findByIdAndUpdate(
+ 
+        const update = await User.findByIdAndUpdate(
             id,
             data,
             {new: true}
         )
-
+ 
         if(!update) return res.status(404).send(
             {
                 success: false,
@@ -88,15 +90,16 @@ export const update = async(req, res)=>{
         return res.send(
             {
                 success: true,
-                message: 'User updated'
+                message: 'User updated',
+                user: update
             }
         )
-    } catch (e) {
+    }catch(e){
         console.error('General error', e)
         return res.status(500).send(
             {
                 success: false,
-                message: 'General error', 
+                message: 'General error',
                 e
             }
         )
@@ -104,5 +107,3 @@ export const update = async(req, res)=>{
 }
 
 //Actualizar profile Picture
-
-//Actualizar password *******

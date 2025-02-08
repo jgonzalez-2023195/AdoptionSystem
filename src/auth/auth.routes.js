@@ -3,6 +3,7 @@ import { Router } from "express"
 import { 
     login,
     register, 
+    updatePassword, 
     test 
 } from "./auth.controller.js"
 import { validateJwt } from '../../middlewares/validate.jwt.js'
@@ -28,6 +29,7 @@ api.post(
 )
 
 api.post('/login', login)
+api.put('/forgotPassword/:id', updatePassword)
 
 //Rutas privadas
 api.get('/test', validateJwt, test)

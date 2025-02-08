@@ -72,3 +72,34 @@ export const login = async(req, res)=>{
         return res.status(500).send({message: 'General error with login function', err})
     }
 }
+
+//Actualizar password *******
+export const updatePassword = async (req, res) => {
+    try {
+        let id = req.params.id
+        let { oldPassword, newPassword } = req.body
+        const user = await User.findById(id)
+
+        const equalsPassword = await checkPassword(user.password, oldPassword)
+        if(!equalsPassword) return res.status(404).send({message: 'Password incorrect'})
+
+        const newPasword = await encrypt(newPassword)
+        user.password = newPasword
+        await user.save()
+        return res.status(200).send(
+            {
+                success: true,
+                message: 'Password updated'
+            }
+        )
+    } catch (e) {
+        console.error('General error', e)
+        return res.status(500).send(
+            {
+                success: false,
+                message: 'General error',
+                e
+            }
+        )
+    }
+}
