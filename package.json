@@ -12,7 +12,7 @@
     "Adoption",
     "Appointments"
   ],
-  "author": "JN (Josué Noj)",
+  "author": "JG (José González)",
   "license": "MIT",
   "dependencies": {
     "adoptionsystem": "file:",
