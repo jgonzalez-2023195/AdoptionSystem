@@ -1,39 +1,85 @@
-import Animal from '../animal/animal.model.js'
-import User from '../user/user.model.js'
 import Appointment from './appointment.model.js';
 
 export const addAppointment = async (req, res) => {
     try {
-        const data = req.body; // Obtener todo el objeto de datos
+        const data = req.body
+        const { pet, date } = data
 
-        const { pet, date } = data; // Extraer pet y date para las validaciones
 
-        // Validar que no haya otra cita en la misma fecha
-        const existingAppointment = await Appointment.findOne({ date });
-        if (existingAppointment) {
-            return res.status(400).json({ message: "Ya existe una cita en esa fecha" });
-        }
+        const appointmentDate = new Date(date)
+        const currentDate = new Date()
+        if (appointmentDate < currentDate) return res.status(400).send({ message: "No se puede programar una cita en una fecha pasada." });
+        
 
-        // Validar que el animal no tenga otra cita ese día
-        const animalAppointment = await Appointment.findOne({  pet });
-        if (animalAppointment) {
-            return res.status(400).json({ message: "Este animal ya tiene una cita " });
-        }
+        const existingAppointment = await Appointment.findOne({ date, pet })
+        if (existingAppointment) return res.status(404).send({ message: "This animal already has an appointment scheduled or there is already an appointment on that date." })
 
-        // Crear la nueva cita con todos los datos
         const newAppointment = new Appointment(data);
-
-        // Guardar la nueva cita
         await newAppointment.save();
 
-        // Responder con éxito
-        return res.status(201).json({ message: "Cita creada exitosamente", appointment: newAppointment });
+        return res.status(200).send({ message: "Cita creada exitosamente", newAppointment });
     } catch (e) {
         console.error('General error', e);
-        return res.status(500).send({
-            success: false,
-            message: 'General error',
-            e
-        });
+        return res.status(500).send(
+            {
+                success: false,
+                message: 'General error',
+                e
+            }
+        )
+    }
+}
+
+export const gettAllApointment = async(req, res)=> {
+    try {
+        let appointment = await Appointment.find()
+        if(appointment.length === 0) return res.status(404).send({message: 'No registered appointment'})
+            return res.status(200).send({message: 'Appointment found: ', appointment})
+    } catch (e) {
+        console.error('General error', e);
+        return res.status(500).send(
+            {
+                success: false,
+                message: 'General error',
+                e
+            }
+        )
+    }
+}
+
+export const updateAppointment = async (req, res)=> {
+    try {
+        let id = req.params.id
+        let data = req.body
+        let updateAppointment = await Appointment.findByIdAndUpdate(id, data, {new: true})
+        if(!updateAppointment) return res.status(400).send({message: 'Appointment not found, Appointment not update'})
+            return res.status(200).send({message: 'Appointment updated succesfully', updateAppointment})
+    } catch (e) {
+        console.error('General error', e);
+        return res.status(500).send(
+            {
+                success: false,
+                message: 'General error',
+                e
+            }
+        )
+    }
+}
+
+export const deleteAppointment = async (req, res)=> {
+    try {
+        let id = req.params.id
+        let deleteAppointment = await Appointment.findByIdAndDelete(id)
+        if(!deleteAppointment) return res.status(404).send({message: 'Appointment not found, Appointment not delete'})
+            return res.status(200).send({message: 'Deleted Appointment for sistem', deleteAppointment})
+    } catch (e) {
+        console.error('General error', e);
+        return res.status(500).send(
+            {
+                success: false,
+                message: 'General error',
+                e
+            }
+        )
     }
 }

@@ -1,0 +1,596 @@
+{
+	"info": {
+		"_postman_id": "3a780aaf-6cd9-4d0a-bdc4-003eb465d50c",
+		"name": "ADOPTSYS",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "37956953"
+	},
+	"item": [
+		{
+			"name": "Register",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "name",
+							"value": "Jose",
+							"type": "text"
+						},
+						{
+							"key": "surname",
+							"value": "Gonzalez",
+							"type": "text"
+						},
+						{
+							"key": "username",
+							"value": "jgonzalez",
+							"type": "text"
+						},
+						{
+							"key": "email",
+							"value": "jgonzalez@kinal.edu.com",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "Asdfghtt21$",
+							"type": "text"
+						},
+						{
+							"key": "profilePicture",
+							"type": "file",
+							"src": "/C:/Users/jgonz/Downloads/AstonMartin.jpg"
+						},
+						{
+							"key": "phone",
+							"value": "41379293",
+							"type": "text"
+						},
+						{
+							"key": "role",
+							"value": "ADMIN",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:4000/register",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "updatePass",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "oldPassword",
+							"value": "Asdfghtt21$",
+							"type": "text"
+						},
+						{
+							"key": "newPassword",
+							"value": "Hi2023195&",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:4000/forgotPassword/67a6eb56d04c482ec172f8a9",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"forgotPassword",
+						"67a6eb56d04c482ec172f8a9"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "userLoggin",
+							"value": "jgonzalez",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "Hi2023195&",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:4000/login",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "UPDATE",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2E2Y2UzNjAxNzMyZWVjZjdkMThhMmYiLCJ1c2VybmFtZSI6Impnb256YWxlejIiLCJuYW1lIjoiSm9zZSIsInJvbGUiOiJDTElFTlQiLCJpYXQiOjE3Mzg5ODUwOTUsImV4cCI6MTczODk5NTg5NX0.VccFhXGRSfnhaG-1uglOuil8rM6N_ndrJi7AK7sJ95c",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "name",
+							"value": "José",
+							"type": "text"
+						},
+						{
+							"key": "email",
+							"value": "jgonzalez.242720@gmail.com",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:4000/v1/user/67a6ce3601732eecf7d18a2f",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"v1",
+						"user",
+						"67a6ce3601732eecf7d18a2f"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "AnimalRegister",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2E2ZWI1NmQwNGM0ODJlYzE3MmY4YTkiLCJ1c2VybmFtZSI6Impnb256YWxleiIsIm5hbWUiOiJKb3NlIiwicm9sZSI6IkNMSUVOVCIsImlhdCI6MTczOTA3MjUwNywiZXhwIjoxNzM5MDgzMzA3fQ.A35-1OuADX4w3smKgZwmWeWkOHBQBesbPbYJTL2jnmA",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "name",
+							"value": "Panchito",
+							"type": "text"
+						},
+						{
+							"key": "description",
+							"value": "Perro marron de raza Pastor aleman",
+							"type": "text"
+						},
+						{
+							"key": "age",
+							"value": "5",
+							"type": "text"
+						},
+						{
+							"key": "type",
+							"value": "dog",
+							"type": "text"
+						},
+						{
+							"key": "keeper",
+							"value": "67a6ce3601732eecf7d18a2f",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:4000/v1/pets/petRegister",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"v1",
+						"pets",
+						"petRegister"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "AnimalList",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2E2ZWI1NmQwNGM0ODJlYzE3MmY4YTkiLCJ1c2VybmFtZSI6Impnb256YWxleiIsIm5hbWUiOiJKb3NlIiwicm9sZSI6IkNMSUVOVCIsImlhdCI6MTczOTA3MjUwNywiZXhwIjoxNzM5MDgzMzA3fQ.A35-1OuADX4w3smKgZwmWeWkOHBQBesbPbYJTL2jnmA",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "localhost:4000/v1/pets/petList",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"v1",
+						"pets",
+						"petList"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "AnimalUpdated",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2E2ZWI1NmQwNGM0ODJlYzE3MmY4YTkiLCJ1c2VybmFtZSI6Impnb256YWxleiIsIm5hbWUiOiJKb3NlIiwicm9sZSI6IkNMSUVOVCIsImlhdCI6MTczOTA3MjUwNywiZXhwIjoxNzM5MDgzMzA3fQ.A35-1OuADX4w3smKgZwmWeWkOHBQBesbPbYJTL2jnmA",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "name",
+							"value": "Panchito",
+							"type": "text"
+						},
+						{
+							"key": "description",
+							"value": "Gato gris raza Angora",
+							"type": "text"
+						},
+						{
+							"key": "age",
+							"value": "5",
+							"type": "text"
+						},
+						{
+							"key": "type",
+							"value": "gato",
+							"type": "text"
+						},
+						{
+							"key": "keeper",
+							"value": "67a66ddac12220e9858eb043",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:4000/v1/pets/petUpdate/67a6cea101732eecf7d18a33",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"v1",
+						"pets",
+						"petUpdate",
+						"67a6cea101732eecf7d18a33"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "AnimalDeleted",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2E2ZWI1NmQwNGM0ODJlYzE3MmY4YTkiLCJ1c2VybmFtZSI6Impnb256YWxleiIsIm5hbWUiOiJKb3NlIiwicm9sZSI6IkNMSUVOVCIsImlhdCI6MTczOTA3MjUwNywiZXhwIjoxNzM5MDgzMzA3fQ.A35-1OuADX4w3smKgZwmWeWkOHBQBesbPbYJTL2jnmA",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "name",
+							"value": "Panchito",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "description",
+							"value": "Gato gris raza Angora",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "age",
+							"value": "5",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "type",
+							"value": "gato",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "keeper",
+							"value": "67a66ddac12220e9858eb043",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:4000/v1/pets/petDelete/67a6cee5503bd1d473d4622a",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"v1",
+						"pets",
+						"petDelete",
+						"67a6cee5503bd1d473d4622a"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Appointment",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2E2ZWI1NmQwNGM0ODJlYzE3MmY4YTkiLCJ1c2VybmFtZSI6Impnb256YWxleiIsIm5hbWUiOiJKb3NlIiwicm9sZSI6IkNMSUVOVCIsImlhdCI6MTczOTA3MjUwNywiZXhwIjoxNzM5MDgzMzA3fQ.A35-1OuADX4w3smKgZwmWeWkOHBQBesbPbYJTL2jnmA",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "title",
+							"value": "Visita a Panchito",
+							"type": "text"
+						},
+						{
+							"key": "description",
+							"value": "Visita para adopcion de Panchito 1",
+							"type": "text"
+						},
+						{
+							"key": "adopter",
+							"value": "67a6ce3601732eecf7d18a2f",
+							"type": "text"
+						},
+						{
+							"key": "pet",
+							"value": "67a6cea101732eecf7d18a33",
+							"type": "text"
+						},
+						{
+							"key": "date",
+							"value": "01-02-2025",
+							"type": "text"
+						},
+						{
+							"key": "status",
+							"value": "pending",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:4000/v1/appointment/appointmentRegister",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"v1",
+						"appointment",
+						"appointmentRegister"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "AppointmentList",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2E2ZWI1NmQwNGM0ODJlYzE3MmY4YTkiLCJ1c2VybmFtZSI6Impnb256YWxleiIsIm5hbWUiOiJKb3NlIiwicm9sZSI6IkNMSUVOVCIsImlhdCI6MTczOTA3MjUwNywiZXhwIjoxNzM5MDgzMzA3fQ.A35-1OuADX4w3smKgZwmWeWkOHBQBesbPbYJTL2jnmA",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "localhost:4000/v1/appointment/appointmentList",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"v1",
+						"appointment",
+						"appointmentList"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "AppointmentUpdate",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2E2ZWI1NmQwNGM0ODJlYzE3MmY4YTkiLCJ1c2VybmFtZSI6Impnb256YWxleiIsIm5hbWUiOiJKb3NlIiwicm9sZSI6IkNMSUVOVCIsImlhdCI6MTczOTA3MjUwNywiZXhwIjoxNzM5MDgzMzA3fQ.A35-1OuADX4w3smKgZwmWeWkOHBQBesbPbYJTL2jnmA",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "title",
+							"value": "Visita a Panchito",
+							"type": "text"
+						},
+						{
+							"key": "description",
+							"value": "Visita para adopcion de Panchito 1",
+							"type": "text"
+						},
+						{
+							"key": "adopter",
+							"value": "67a6ce3601732eecf7d18a2f",
+							"type": "text"
+						},
+						{
+							"key": "pet",
+							"value": "67a6cea101732eecf7d18a33",
+							"type": "text"
+						},
+						{
+							"key": "date",
+							"value": "01-02-2025",
+							"type": "text"
+						},
+						{
+							"key": "status",
+							"value": "completed",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:4000/v1/appointment/appointmentUpdate/67a81e5a5e487599c744f44a",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"v1",
+						"appointment",
+						"appointmentUpdate",
+						"67a81e5a5e487599c744f44a"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "AppointmentDelete",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2E2ZWI1NmQwNGM0ODJlYzE3MmY4YTkiLCJ1c2VybmFtZSI6Impnb256YWxleiIsIm5hbWUiOiJKb3NlIiwicm9sZSI6IkNMSUVOVCIsImlhdCI6MTczOTA3MjUwNywiZXhwIjoxNzM5MDgzMzA3fQ.A35-1OuADX4w3smKgZwmWeWkOHBQBesbPbYJTL2jnmA",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "name",
+							"value": "Panchito",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "description",
+							"value": "Gato gris raza Angora",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "age",
+							"value": "5",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "type",
+							"value": "gato",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "keeper",
+							"value": "67a66ddac12220e9858eb043",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:4000/v1/appointment/appointmentDelete/67a81e355a20b25658f87c58",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"v1",
+						"appointment",
+						"appointmentDelete",
+						"67a81e355a20b25658f87c58"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
